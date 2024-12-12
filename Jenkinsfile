@@ -6,7 +6,7 @@ pipeline
             matrix {
                 axes{
                     axis {
-                        name 'PLATEFROME'
+                        name 'PLATEFROM'
                         values 'Linux', 'MacOs', 'windows'
                     }
                     axis {
@@ -15,7 +15,7 @@ pipeline
                     }
                 }
                 stages {
-                    stage ('build') {
+                    stage('build') {
                         steps {
                             echo "construire pour ${ PLATEFORM } - ${ BROWSER}"
                         }
