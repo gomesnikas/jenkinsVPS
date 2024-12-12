@@ -1,13 +1,13 @@
-pipeline 
+pipeline {
     agent any
-    
+
     stages {
         stage('déploement production') {
             matrix {
-                axes{
+                axes {
                     axis {
-                        name 'PLATEFROM'
-                        values 'Linux', 'MacOs', 'windows'
+                        name 'PLATFORM'
+                        values 'Linux', 'MacOS', 'Windows'
                     }
                     axis {
                         name 'BROWSER'
@@ -17,13 +17,14 @@ pipeline
                 stages {
                     stage('build') {
                         steps {
-                            echo "construire pour ${ PLATEFORM } - ${ BROWSER}"
+                            echo "Construire pour ${PLATFORM} - ${BROWSER}"
                         }
+                    }
                     stage('test') {
                         steps {
-                            echo "test pour ${ PLATEFORM } - ${ BROWSER }"
+                            echo "Test pour ${PLATFORM} - ${BROWSER}"
                         }
-                    }    
+                    }
                 }
             }
         }
